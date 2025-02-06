@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marks Entry</title>
+</head>
+<body>
+
+    <h2>Enter Student Marks</h2>
+
+    <!-- The form sends data to 'submit_marks.php' file using the POST method -->
+    <form action="submit_marks.php" method="POST">
+
+        <!-- Student Name Input Field -->
+        <label for="studentName">Student Name:</label>
+        <input type="text" id="studentName" name="studentName" required><br><br>
+
+        <!-- Mathematics Marks Input -->
+        <label for="mathematics">Mathematics Marks:</label>
+        <input type="number" id="mathematics" name="mathematics" min="0" max="100" required><br><br>
+
+        <!-- English Marks Input -->
+        <label for="english">English Marks:</label>
+        <input type="number" id="english" name="english" min="0" max="100" required><br><br>
+
+        <!-- Kiswahili Marks Input -->
+        <label for="kiswahili">Kiswahili Marks:</label>
+        <input type="number" id="kiswahili" name="kiswahili" min="0" max="100" required><br><br>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Marks</button>
+
+    </form>
+
+</body>
+</html>
