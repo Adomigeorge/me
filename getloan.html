@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available Loans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .back-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .get-loan-btn {
+            padding: 8px 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .get-loan-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Available Loans</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Loan Type</th>
+                    <th>Description</th>
+                    <th>Repayment Period</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="loans-table">
+                <!-- Loan data will be dynamically inserted here -->
+            </tbody>
+        </table>
+        <a href="home.html" class="back-btn">Homepage</a>
+    </div>
+
+    <script>
+        // Fetch loans data from the server and populate the table
+        fetch("loans.php")
+            .then(response => response.json())
+            .then(data => {
+                const loansTable = document.getElementById("loans-table");
+                data.forEach(loan => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+                        <td>${loan.loan_type}</td>
+                        <td>${loan.loan_description}</td>
+                        <td>${loan.repayment_period} months</td>
+                        <td>${loan.available === "1" ? "Available" : "Not Available"}</td>
+                        <td><button class="get-loan-btn" onclick="getLoan('${loan.loan_type}')">Get Loan</button></td>
+                    `;
+                    loansTable.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching loans:", error);
+            });
+
+        // Function to handle loan acquisition
+        function getLoan(loanType) {
+            let confirmLoan = confirm(`Do you want to acquire the ${loanType} loan?`);
+            if (confirmLoan) {
+                // In a real application, you can handle the loan acquisition process here (e.g., sending data to a server).
+                alert(`You have acquired the ${loanType} loan successfully!`);
+            }
+        }
+    </script>
+</body>
+</html>

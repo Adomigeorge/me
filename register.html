@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0e2e2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: transparent;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            color: #555;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        /* Style for the 'Already registered?' statement */
+        .already-registered {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+        /* Style for the 'Login' button */
+        .login-btn {
+            display: block;
+            width: auto; /* Remove full width */
+            padding: 10px 20px;  /* Smaller padding */
+            font-size: 12px;   /* Smaller font size */
+            color: white;
+            background-color: #28a745; /* Green color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin: 10px auto;   /* Center it horizontally */
+        }
+
+        .login-btn:hover {
+            background-color: #218838;
+            /* Darker green on hover */
+        }
+
+        /* Style for the 'Home' button at the top-right corner */
+        .home-btn {
+            position: fixed;
+            top: 50px;
+            right: 200px;
+            padding: 8px 16px;
+            font-size: 14px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s;
+        }
+
+        .home-btn:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Home Button -->
+    <a href="home.html" class="home-btn">Home</a>
+
+    <div class="container">
+        <h1>User Registration</h1>
+        <form action="register.php" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Register">
+        </form>
+
+        <!-- Statement and Login Button -->
+        <div class="already-registered">
+            <p>Already registered?</p>
+            <a href="login.html">
+                <button class="login-btn">Login</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

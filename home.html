@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J&Gs Banking</title>
+    <style>
+        /* Reset and general styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            justify-content: space-between;
+            background: url('OIP.jpeg') no-repeat center center/cover;
+        }
+
+        /* Top Bar Styles */
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            position: relative;
+        }
+
+        .top-bar .title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .top-bar nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .top-bar nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .top-bar nav a:hover {
+            color: lightblue;
+        }
+        /* Style for the left container */
+.left-container {
+    position: fixed; /* Fixes the container to the left side */
+    top: 50px;
+    left: 0;
+    width: 300px; /* Adjust width as needed */
+    height: 87%; /* Full height of the page */
+    background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allows scrolling if the content overflows */
+}
+
+/* Style for the statements inside the container */
+.left-container p {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+
+        .menu {
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .menu-icon {
+            width: 25px;
+            height: 25px;
+            fill: white;
+        }
+
+        /* Dropdown Menu Base Style */
+        .dropdown {
+            position: absolute;
+            top: 100%;
+            /* Position below the menu */
+            right: 0;
+            /* Aligns dropdown with the "Menu" text */
+            background-color: rgba(0, 0, 0, 0.9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1000;
+            opacity: 0;
+            /* Hidden by default */
+            visibility: hidden;
+            /* Ensures it's not focusable */
+            transform: translateY(-10px);
+            /* Slide-up effect */
+            transition: all 0.3s ease-in-out;
+            /* Smooth transition */
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 7px 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .dropdown a:hover {
+            background-color: #007BFF;
+            /* Highlight option on hover */
+        }
+
+        /* Main Content Styles */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Align content to the bottom */
+            flex-grow: 1;
+            padding-bottom: 30px; /* Add some space above the footer */
+        }
+
+        .get-started {
+            padding: 7px 10px;
+            font-size: 20px;
+            color: white;
+            background-color: #3090f7;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .get-started:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer Styles */
+        .footer {
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            font-size: 14px;
+        }
+
+        i{
+            color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Top Bar -->
+        <header class="top-bar">
+            <div class="title">J&Gs Bank</div> <!-- Website title -->
+            <nav>
+                <a href="home.html">Home</a> <!-- About link -->
+                <a href="#explore">Explore</a> <!-- Search link -->
+                <a href="about.html">About</a> <!-- Explore link -->
+                <a href="contact.html">Contact Us</a> <!-- About link -->
+            </nav>
+            <div class="menu" id="menu">
+                <!-- Hamburger Menu Icon -->
+                <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M3 6h18v2H3zM3 12h18v2H3zM3 18h18v2H3z" />
+                    Menu <!-- Menu with dropdown -->
+                    <div class="dropdown" id="dropdown">
+                        <a href="register.html">SignUp</a>
+                        <a href="loans.html" id="loan-link">Loan</a>
+                        <a href="#option3">Status</a>
+                        <a href="about.html">About</a>
+                    </div>
+            </div>
+        </header>
+
+        <!-- Center Button -->
+        <main class="main-content">
+            <a href="register.html">
+                <button class="get-started">Get Started</button>
+            </a>
+            
+
+        </main>
+        <div class="left-container">
+            <p><u>WELCOME TO OUR WEBSITE!!</u></p>
+            <p>Here at <strong>J&Gs bank</strong> we offer valuable services.</p>
+            <p>Enjoy the Convient, Transparent, Honest and Friendly banking services.</p>
+            <p>Feel free to contact us for more details.</p>
+            <p><i>We Got Your Financial Needs!!</i></p>
+        </div>
+        
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2024 J&Gs BANK. All rights reserved.</p> <!-- Footer text -->
+        </footer>
+    </div>
+
+    <script>
+        // JavaScript to handle dropdown visibility
+        const menu = document.getElementById('menu');
+        const dropdown = document.getElementById('dropdown');
+
+        menu.addEventListener('click', () => {
+            // Toggle dropdown visibility dynamically
+            if (dropdown.style.visibility === 'visible') {
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.opacity = '0';
+                dropdown.style.transform = 'translateY(-10px)';
+            } else {
+                dropdown.style.visibility = 'visible';
+                dropdown.style.opacity = '1';
+                dropdown.style.transform = 'translateY(0)';
+            }
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!menu.contains(event.target)) {
+                dropdown.style.visibility = 'hidden';
+                dropdown.style.opacity = '0';
+                dropdown.style.transform = 'translateY(-10px)';
+            }
+        });
+
+        // Check if user is logged in, otherwise prompt them to login or register
+        document.getElementById('loan-link').addEventListener('click', function(e) {
+            // Assuming you store the session state in JS or by checking a specific cookie
+            if (!sessionStorage.getItem('user_id')) {
+                alert("You need to sign in or register to access loan details.");
+                e.preventDefault(); // Prevent the default link action
+                window.location.href = "login.html"; // Redirect to login page
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(245, 230, 245);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 50%;
+            margin: 50px auto;
+            padding: 20px;
+            background-color:transparent;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        /* Style for the 'Not registered?' statement */
+        .not_registered {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+            margin-top: 20px;
+        }
+
+
+        /* Style for the 'Login' button */
+        .register-btn {
+            display: block;
+            width: auto; /* Remove full width */
+            padding: 10px 20px;  /* Smaller padding */
+            font-size: 12px;   /* Smaller font size */
+            color: white;
+            background-color: #28a745; /* Green color */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            margin: 10px auto;   /* Center it horizontally */
+        }
+        label {
+            font-size: 14px;
+            margin-bottom: 8px;
+            display: block;
+            color: #555;
+        }
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>User Login</h1>
+        <form action="login.php" method="POST">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <!-- Statement and Login Button -->
+        <div class="not_registered">
+            <p>Don't have an account?</p>
+            <a href="register.html">
+                <button class="register-btn">Register</button>
+            </a>
+        </div>
+    </div>
+
+</body>
+</html>
